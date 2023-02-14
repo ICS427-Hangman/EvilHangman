@@ -10,7 +10,7 @@ We have a working application, but not a web application. The game is playable i
  5. Need to write code to create accounts, including a username, a password, and two security questions to reset the password.
  6. Need to ask users the number of guesses and size of the word.
  7. Need to write code to encrypt the passwords and security questions.7
- 8. Need to prevent SQL Injection.
+ 8. Need to prevent Mongodb Injection.
 
 ## What each team member has contributed and will be working on:
 1. Zhixin Li
@@ -30,7 +30,7 @@ We have a working application, but not a web application. The game is playable i
   i. Uploading the game source code to GitHub. 
   ii. Help to make the application into a web application. 
   iii. Create an Mongo database and provide credentials to the team.
-  iiii. Need to prevent SQL Injection.
+  iiii. Need to prevent Mongodb Injection.
 4. Malia Liu
  a. Contribute to assignment 1, part A, and part of part B. Fixing and providing a diagram. 
  b. Assignments: 
