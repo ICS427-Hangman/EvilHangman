@@ -8,10 +8,17 @@ import java.util.Scanner;
 public class EvilHangman {
 
     public static void main(String[] args) {
-        File theFile = new File(args[0]);
+        File theFile = new File("dictionary.txt");
         EvilHangmanGame theGame = new EvilHangmanGame();
-        int size = Integer.decode(args[1]);
-        int guessesLeft = Integer.decode(args[2]);
+
+        System.out.println("How many letters should the word have?");
+        Scanner keyboard = new Scanner(System.in);
+        String input = keyboard.next();
+        int size = Integer.decode(input);
+
+        System.out.println("How many guesses do you want?");
+        input = keyboard.next();
+        int guessesLeft = Integer.decode(input);
         try{
             theGame.startGame(theFile,size);
         }
@@ -33,8 +40,8 @@ public class EvilHangman {
             System.out.print("Enter guess: ");
             String currentWord = theGame.word;
             try{
-                Scanner keyboard = new Scanner(System.in);
-                String input = keyboard.next();
+                keyboard = new Scanner(System.in);
+                input = keyboard.next();
                 input = input.toLowerCase(Locale.ROOT);
                 while(input.length() > 1 || input.charAt(0) < 'A' || input.charAt(0) > 'z'){
                     System.out.print("Invalid input. Enter guess: ");
