@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import dictionaryWords from "./dictionary";
+import React, { useState, useEffect } from 'react';
+import dictionaryWords from './dictionary';
 
 export default function PlayTheHangmanGame() {
-  const [numChars, setNumChars] = useState("");
-  const [numGuesses, setNumGuesses] = useState("");
-  const [word, setWord] = useState("");
-  const [guessesLeft, setGuessesLeft] = useState("");
+  const [numChars, setNumChars] = useState('');
+  const [numGuesses, setNumGuesses] = useState('');
+  const [word, setWord] = useState('');
+  const [guessesLeft, setGuessesLeft] = useState('');
   const [gameOver, setGameOver] = useState(false);
   const [guessedChars, setGuessedChars] = useState(new Set());
-  const [displayedWord, setDisplayedWord] = useState("");
+  const [displayedWord, setDisplayedWord] = useState('');
 
   const handleNumCharsChange = (event) => {
     setNumChars(event.target.value);
@@ -19,10 +19,11 @@ export default function PlayTheHangmanGame() {
   };
 
   const handleStartGame = () => {
-    const words = dictionaryWords.split("\n");
+    const words = dictionaryWords.split('\n');
+    // eslint-disable-next-line no-shadow
     const filteredWords = words.filter((word) => word.length === Number(numChars));
     const randomIndex = Math.floor(Math.random() * filteredWords.length);
-    const randomWord = filteredWords.length > 0 ? filteredWords[randomIndex] : "";
+    const randomWord = filteredWords.length > 0 ? filteredWords[randomIndex] : '';
     setWord(randomWord);
     setGuessesLeft(numGuesses);
     setGameOver(false);
@@ -37,33 +38,29 @@ export default function PlayTheHangmanGame() {
     const newGuessedChars = new Set(guessedChars);
     newGuessedChars.add(char);
     setGuessedChars(newGuessedChars);
-
-
     if (word.includes(char)) {
-      const newDisplayedWord = word.replace(new RegExp(`[^${Array.from(newGuessedChars).join("")}]`, "g"), "_");
+      const newDisplayedWord = word.replace(new RegExp(`[^${Array.from(newGuessedChars).join('')}]`, 'g'), '_');
       setDisplayedWord(newDisplayedWord);
     } else {
       setGuessesLeft(guessesLeft - 1);
     }
 
-    if (guessesLeft === 1 || !displayedWord.includes("_")) {
+    if (guessesLeft === 1 || !displayedWord.includes('_')) {
       setGameOver(true);
     }
   };
-
-
   useEffect(() => {
     if (numChars && numGuesses) {
-      setWord("");
-      setDisplayedWord("");
-      setGuessesLeft("");
+      setWord('');
+      setDisplayedWord('');
+      setGuessesLeft('');
       setGuessedChars(new Set());
       setGameOver(false);
     }
   }, [numChars, numGuesses]);
 
   useEffect(() => {
-    setDisplayedWord(word.replace(/[a-z]/g, "_"));
+    setDisplayedWord(word.replace(/[a-z]/g, '_'));
   }, [word]);
 
   return (
@@ -88,7 +85,7 @@ export default function PlayTheHangmanGame() {
             <div>
               <p>Word: {displayedWord}</p>
               <p>Guesses left: {guessesLeft}</p>
-              <p>Guessed characters: {Array.from(guessedChars).join(", ")}</p>
+              <p>Guessed characters: {Array.from(guessedChars).join(',')}</p>
               <br />
               <label>
                 Guess a character:
@@ -105,10 +102,10 @@ export default function PlayTheHangmanGame() {
           ) : (
             <p>You win!</p>
           )}
+          {/* eslint-disable-next-line no-undef */}
           <button onClick={() => window.location.reload()}>Play again</button>
         </div>
       )}
     </div>
   );
 }
-
