@@ -9,5 +9,19 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+  "defaultQuestions": [
+    {
+      "email": "john@foo.com",
+      "name": "john",
+      "question1": "What city were you born in?",
+      "answer1": "enter your answer",
+      "question2":"What is your oldest sibling’s middle name?",
+      "answer2": "enter your answer",
+      "question3":"What college were you attended?",
+      "answer3": "enter your answer",
+      "question4":"In what city or town did your parents meet?",
+      "answer4": "enter your answer"
+    }
   ]
 }
