@@ -17,7 +17,7 @@ class Landing extends React.Component {
 
             <Grid.Column width={8}>
               <h1>Welcome to Hangman</h1>
-              <p>Now get to work and modify this app!</p>
+              <p>Now let enjoy this game!</p>
               <button className="massive ui inverted red button">
                 <i className="heart icon"/>
                 <Link style={linkStyle} to="/hangman">Start</Link>
