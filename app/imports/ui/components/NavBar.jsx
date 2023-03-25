@@ -13,10 +13,10 @@ class NavBar extends React.Component {
     return (
       <Menu style={menuStyle} attached="top" borderless inverted>
         <Menu.Item as={NavLink} activeClassName="" exact to="/">
-          <Header inverted as='h1'>meteor-application-template</Header>
+          <Header inverted as='h1'>Hangman</Header>
         </Menu.Item>
         {this.props.currentUser ? (
-          [<Menu.Item as={NavLink} activeClassName="active" exact to="/hangman" key='add'>Hangman</Menu.Item>]
+          [<Menu.Item as={NavLink} activeClassName="active" exact to="/hangman" key='add'>Game</Menu.Item>]
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
           [<Menu.Item as={NavLink} activeClassName="active" exact to="/listanswer" key='admin'>ListAnswer</Menu.Item>]
@@ -32,7 +32,18 @@ class NavBar extends React.Component {
           ) : (
             <Dropdown id="navbar-current-user" text={this.props.currentUser} pointing="top right" icon={'user'}>
               <Dropdown.Menu>
-                <Dropdown.Item id="navbar-sign-out" icon="sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
+                <Dropdown.Item id="navbar-sign-out" icon="sign out" text="Sign Out" as={NavLink} exact to="/signout"
+                  onClick={() => Meteor.logoutOtherClients(function (error) {
+                    if (error) {
+                      console.log(error);
+                    } else {
+                      Meteor.logout(function () {
+                        console.log('User logged out');
+                        console.log('User ID:', Meteor.userId());
+                      });
+                    }
+                  })
+                  }/>
                 <Dropdown.Item id="navbar-delete-account" icon="delete" text="Delete Account" as={NavLink} exact to="/DeleteAccount"/>
               </Dropdown.Menu>
             </Dropdown>

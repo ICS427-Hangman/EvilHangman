@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Grid } from 'semantic-ui-react';
 import dictionaryWords from './dictionary';
 
 export default function PlayTheHangmanGame() {
@@ -64,32 +65,32 @@ export default function PlayTheHangmanGame() {
   }, [word]);
 
   return (
-    <div>
+    <Grid style={{ marginTop: '30px', marginBottom: '30px' }} id='landing-page' verticalAlign='middle' textAlign='center' container>
       {!gameOver ? (
         <div>
           {!word ? (
-            <div>
-              <label>
+            <div style={{ marginTop: '20px' }}>
+              <label style={{ marginTop: '20px' }}>
                 Number of characters in word:
-                <input type="number" value={numChars} onChange={handleNumCharsChange} />
+                <input style={{ marginTop: '20px', marginLeft: '10px' }} type="number" value={numChars} onChange={handleNumCharsChange} />
               </label>
               <br />
-              <label>
+              <label style={{ marginTop: '20px' }}>
                 Number of guesses allowed:
-                <input type="number" value={numGuesses} onChange={handleNumGuessesChange} />
+                <input style={{ marginTop: '20px', marginLeft: '10px' }} type="number" value={numGuesses} onChange={handleNumGuessesChange} />
               </label>
               <br />
-              <button onClick={handleStartGame}>Start game</button>
+              <button style={{ marginTop: '20px', fontFamily: "'Finger Paint', cursive", padding: '10px' }} onClick={handleStartGame}>Start game</button>
             </div>
           ) : (
-            <div>
+            <div style={{ marginTop: '20px' }}>
               <p>Word: {displayedWord}</p>
               <p>Guesses left: {guessesLeft}</p>
               <p>Guessed characters: {Array.from(guessedChars).join(',')}</p>
               <br />
               <label>
                 Guess a character:
-                <input type="text" value="" maxLength="1" pattern="[a-zA-Z]" onChange={handleGuess} />
+                <input style={{ marginTop: '20px', marginLeft: '10px' }} type="text" value="" maxLength="1" pattern="[a-zA-Z]" onChange={handleGuess} />
               </label>
             </div>
           )}
@@ -103,9 +104,9 @@ export default function PlayTheHangmanGame() {
             <p>You win!</p>
           )}
           {/* eslint-disable-next-line no-undef */}
-          <button onClick={() => window.location.reload()}>Play again</button>
+          <button style={{ marginTop: '20px', fontFamily: "'Finger Paint', cursive", padding: '10px' }} onClick={() => window.location.reload()}>Play again</button>
         </div>
       )}
-    </div>
+    </Grid>
   );
 }
