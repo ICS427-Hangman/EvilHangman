@@ -1,21 +1,27 @@
 import React from 'react';
-import { Grid, Image } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
   render() {
+    const landingStyle = {
+      backgroundImage: 'url(images/background.png)',
+      backgroundSize: '100% auto',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      width: '100vw',
+    };
+    const linkStyle = { color: 'black', textDecoration: 'none' };
     return (
-      <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
-
-        <Grid.Column width={4}>
-          <Image size='small' circular src="/images/meteor-logo.png"/>
-        </Grid.Column>
-
-        <Grid.Column width={8}>
-          <h1>Welcome to this template</h1>
-          <p>Now get to work and modify this app!</p>
-        </Grid.Column>
-
+      <Grid style={landingStyle} verticalAlign='middle' textAlign='center' container>
+        <button className="massive ui inverted red button">
+          <i className="heart icon"/>
+          <Link style={linkStyle} to="/hangman">Start</Link>
+        </button>
       </Grid>
     );
   }
