@@ -13,10 +13,9 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Questions.userPublicationName, function () {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Questions.collection.find({ owner: username });
+Meteor.publish(Questions.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Questions.collection.find();
   }
   return this.ready();
 });

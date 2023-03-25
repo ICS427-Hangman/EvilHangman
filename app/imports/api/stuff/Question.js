@@ -13,14 +13,21 @@ class QuestionsCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
+      email: String,
       name: String,
-      description: String,
-      answer: String,
+      question1: String,
+      answer1: String,
+      question2: String,
+      answer2: String,
+      question3: String,
+      answer3: String,
+      question4: String,
+      answer4: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
     // Define names for publications and subscriptions
-    this.userPublicationName = `${this.name}.publication.user`;
+    this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
 

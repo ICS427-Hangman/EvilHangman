@@ -11,9 +11,17 @@
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
   "defaultQuestions": [
-    { "name": "question1", "description": "What city were you born in?", "answer": "enter your answer" },
-    { "name": "question2", "description":"What is your oldest sibling’s middle name?", "answer": "enter your answer" },
-    { "name": "question3", "description":"What college were you attended?", "answer": "enter your answer" },
-    { "name": "question4", "description":"In what city or town did your parents meet?", "answer": "enter your answer" }
+    {
+      "email": "john@foo.com",
+      "name": "john",
+      "question1": "What city were you born in?",
+      "answer1": "enter your answer",
+      "question2":"What is your oldest sibling’s middle name?",
+      "answer2": "enter your answer",
+      "question3":"What college were you attended?",
+      "answer3": "enter your answer",
+      "question4":"In what city or town did your parents meet?",
+      "answer4": "enter your answer"
+    }
   ]
 }

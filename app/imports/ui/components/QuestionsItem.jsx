@@ -8,9 +8,16 @@ class QuestionsItem extends React.Component {
   render() {
     return (
       <Table.Row>
+        <Table.Cell>{this.props.question.email}</Table.Cell>
         <Table.Cell>{this.props.question.name}</Table.Cell>
-        <Table.Cell>{this.props.question.description}</Table.Cell>
-        <Table.Cell>{this.props.question.answer}</Table.Cell>
+        <Table.Cell>{this.props.question.question1}</Table.Cell>
+        <Table.Cell>{this.props.question.answer1}</Table.Cell>
+        <Table.Cell>{this.props.question.question2}</Table.Cell>
+        <Table.Cell>{this.props.question.answer2}</Table.Cell>
+        <Table.Cell>{this.props.question.question3}</Table.Cell>
+        <Table.Cell>{this.props.question.answer3}</Table.Cell>
+        <Table.Cell>{this.props.question.question4}</Table.Cell>
+        <Table.Cell>{this.props.question.answer4}</Table.Cell>
         <Table.Cell>
           <Link to={`/edit/${this.props.question._id}`}>Edit</Link>
         </Table.Cell>
@@ -22,9 +29,16 @@ class QuestionsItem extends React.Component {
 // Require a document to be passed to this component.
 QuestionsItem.propTypes = {
   question: PropTypes.shape({
+    email: PropTypes.string,
     name: PropTypes.string,
-    description: PropTypes.string,
-    answer: PropTypes.string,
+    question1: PropTypes.string,
+    answer1: PropTypes.string,
+    question2: PropTypes.string,
+    answer2: PropTypes.string,
+    question3: PropTypes.string,
+    answer3: PropTypes.string,
+    question4: PropTypes.string,
+    answer4: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
 };
