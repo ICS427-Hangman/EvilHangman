@@ -72,7 +72,7 @@ Repository: https://github.com/ICS427-Hangman/EvilHangman
 What we left to do is make it more secure. Since we saving security question in db and only admin role had the access of it, but what happen if admin account is being hacked. We are working on hash those datas for more secure access. 
 
 ## Current && Next
-For the Current and Next part, we had create a project borad at github. It has what is issue we working on right now and issues to pick. Also compelted issues.
+For the Current and Next part, we had create a project borad at github. It has what issue we working on right now and issues to pick. Also compelted issues.
 
 Here is the link to it: https://github.com/orgs/ICS427-Hangman/projects/1
 
