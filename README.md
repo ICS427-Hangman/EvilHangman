@@ -42,10 +42,11 @@ We have a working application, but not a web application. The game is playable i
 
 ## Progress:
 
-1. A working website with simple design of web application. 
+1. A working website with a simple design of web application. 
+
 <img src="doc/home.png">
 
-2. Working security questions. It appears when user signup an account. Right now, admin where the only person who can see those answers
+2. Working security questions. It appears when the user signup an account. Right now, the admin where the only person who can see those answers.
 
 <img src="doc/sp.png">
 <img src="doc/sq.png">
@@ -58,7 +59,7 @@ We have a working application, but not a web application. The game is playable i
 <img src="doc/lose.png">
 <img src="doc/win.png">
 
-4. Are to delete account 
+4. Are to delete the account. It is available at the top left under the email tag. 
 
 <img src="doc/dc.png">
 
@@ -68,7 +69,7 @@ Repository: https://github.com/ICS427-Hangman/EvilHangman
 
 ## Pending
 
-Pending: What is left to do now in order to complete the application as per the project design goals.
+What we left to do is make it more secure. Since we saving security question in db and only admin role had the access of it, but what happen if admin account is being hacked. We are working on hash those datas for more secure access. 
 
 ## Current && Next
 For the Current and Next part, we had create a project borad at github. It has what is issue we working on right now and issues to pick. Also compelted issues.
