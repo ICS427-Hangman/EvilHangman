@@ -35,7 +35,8 @@ We have a working application, but not a web application. The game is playable i
  a. Contribute to assignment 1, part A, and part of part B. Fixing and providing a diagram. 
  b. Assignments: 
   i. Help to make the application into a web application.
- 
+
+< hr />
 ## README version for Assignment 3:
 <hr />
 
