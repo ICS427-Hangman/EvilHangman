@@ -44,9 +44,18 @@ We have a working application, but not a web application. The game is playable i
 
 1. A working website
 2. Working security questions. It appears when user signup an account. Right now, admin where the only person who can see those answers
-3. Working home page and game function well. 
+
+<img src="doc/sp.png">
+<img src="doc/sq.png">
+<img src="doc/lsq.png">
+
+3. Working game function. 
+
+<img src="doc/game.png">
+
 4. Are to delete account 
 5. Simple design of web application. 
+<img src="doc/home.png">
 
 ## Link:
 
