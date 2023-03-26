@@ -57,7 +57,11 @@ Repository: https://github.com/ICS427-Hangman/EvilHangman
 Pending: What is left to do now in order to complete the application as per the project design goals.
 
 ## Current && Next
-For the Current and Next part, we had create a project borad at github. It has what is issue we working on right now and issues to pick. Also compelted issues. 
+For the Current and Next part, we had create a project borad at github. It has what is issue we working on right now and issues to pick. Also compelted issues.
+
 Here is the link to it: https://github.com/orgs/ICS427-Hangman/projects/1
 
+And An image
+
+<img src="doc/Screenshot 2023-03-25 at 6.54.55 PM.png">
 
