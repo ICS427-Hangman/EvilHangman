@@ -35,5 +35,22 @@ We have a working application, but not a web application. The game is playable i
  a. Contribute to assignment 1, part A, and part of part B. Fixing and providing a diagram. 
  b. Assignments: 
   i. Help to make the application into a web application.
+ 
+## README version for Assignment 3
+<hr />
+## Progress
+1. A working website
+2. Working security questions. It appears when user signup an account. Right now, admin where the only person who can see those answers
+3. Working home page and game function well. 
+4. Are to delete account 
+5. Simple design of web application. 
+## Link
+Repository: https://github.com/ICS427-Hangman/EvilHangman
+Link: Include link to your online repository showing the continuing work
+Pending: What is left to do now in order to complete the application as per the project design goals.
+Roles and responsibilities: List the team members still on the project. Under each name outline as applies:
+New completions (if any...otherwise you can just note any progress made after previous assignment was submitted)
+Current: What the team member is handling now.
+Next: What the team member will handle after current task
 
 
