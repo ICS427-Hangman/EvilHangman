@@ -40,13 +40,15 @@ We have a working application, but not a web application. The game is playable i
 <hr />
 
 ## Progress:
+
 1. A working website
 2. Working security questions. It appears when user signup an account. Right now, admin where the only person who can see those answers
 3. Working home page and game function well. 
 4. Are to delete account 
 5. Simple design of web application. 
-6. 
+
 ## Link:
+
 Repository: https://github.com/ICS427-Hangman/EvilHangman
 
 ## Pending
