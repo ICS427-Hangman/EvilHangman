@@ -61,7 +61,7 @@ For the Current and Next part, we had create a project borad at github. It has w
 
 Here is the link to it: https://github.com/orgs/ICS427-Hangman/projects/1
 
-And An image
+Here is an image
 
 <img src="doc/Screenshot 2023-03-25 at 6.54.55 PM.png">
 
