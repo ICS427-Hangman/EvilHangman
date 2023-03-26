@@ -1,4 +1,4 @@
-## What is complete so far:
+## What is complete so far, as of Feb 13, 2023:
 
 We have a working application, but not a web application. The game is playable in CLI. 
 
@@ -42,11 +42,11 @@ We have a working application, but not a web application. The game is playable i
 
 ## Progress:
 
-1. A working website with a simple design of web application. 
+1. A working website with a simple design for the web application. 
 
 <img src="doc/home.png">
 
-2. Working security questions. It appears when the user signup an account. Right now, the admin where the only person who can see those answers.
+2. Working security questions. They are created after the user signs up their account. Right now, the admin is the only person who can see those answers.
 
 <img src="doc/sp.png">
 <img src="doc/sq.png">
@@ -69,10 +69,12 @@ Repository: https://github.com/ICS427-Hangman/EvilHangman
 
 ## Pending
 
-What we left to do is make it more secure. Since we saving security question in db and only admin role had the access of it, but what happen if admin account is being hacked. We are working on hash those datas for more secure access. 
+What we left to do is make it more secure, and complete the other additional features.
+Since we are currently saving security questions in the database in plain text, and an admin user has access to it, there is currently risk of leaking PII in a successful attack.
+In a future version, the answers will be stored in a hashed format, so even if an attacker gets access to the database, the information will be useless to the attacker.
 
-## Current && Next
-For the Current and Next part, we had create a project borad at github. It has what is issue we working on right now and issues to pick. Also compelted issues.
+## Current & Upcoming Versions
+For the Current and Upcoming versions, we have created a project board at Github. It shows the issues we are working on, as well as the completed issues.
 
 Here is the link to it: https://github.com/orgs/ICS427-Hangman/projects/1
 
