@@ -1,15 +1,15 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { withRouter, alert } from 'react-router-dom';
+import { Container, Form, Grid, Header } from 'semantic-ui-react';
 
 class DeleteAccount extends React.Component {
   // Handle Deletion submission. Delete the user and all associated data, then redirect to the home page.
   submit = () => {
     Meteor.call('accounts.deleteUser', Meteor.userId(), (error) => {
       if (error) {
-        alert('Error: ' + error.message);
+        alert(`Error: ${error.message}`);
       } else {
         alert('User account deleted successfully');
         this.props.history.push('/');
