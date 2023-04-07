@@ -21,8 +21,8 @@ class Signup extends React.Component {
 
   /* Handle Signup submission. Create user account and a profile entry, then redirect to the home page. */
   submit = () => {
-    const { email, password } = this.state;
-    Accounts.createUser({ email, username: email, password }, (err) => {
+    const { email, password, question1, answer1, question2, answer2, question3, answer3, question4, answer4 } = this.state;
+    Accounts.createUser({ email, username: email, password, question1, answer1, question2, answer2, question3, answer3, question4, answer4 }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
@@ -33,11 +33,12 @@ class Signup extends React.Component {
 
   /* Display the signup form. Redirect to add page after successful registration and login. */
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/ask' } };
+    const { from } = this.props.location.state || { from: { pathname: '/hangman' } };
     // if correct authentication, redirect to from: page instead of signup screen
     if (this.state.redirectToReferer) {
       return <Redirect to={from}/>;
     }
+
     return (
       <Container id="signup-page">
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
@@ -65,6 +66,15 @@ class Signup extends React.Component {
                   name="password"
                   placeholder="Password"
                   type="password"
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  label="What city were you born in?"
+                  id="signup-form-password"
+                  icon="lock"
+                  iconPosition="left"
+                  name="question1"
+                  placeholder="What is your answer"
                   onChange={this.handleChange}
                 />
                 <Form.Button id="signup-form-submit" content="Submit"/>
