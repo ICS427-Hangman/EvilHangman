@@ -4,6 +4,14 @@ import { Link, Redirect } from 'react-router-dom';
 import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 
+const securityQuestionsList = [
+  'What is your mother\'s maiden name?',
+  'What was the name of your first pet?',
+  'What was the make of your first car?',
+  'What is your favorite color?',
+  'What city were you born in?',
+];
+
 /**
  * Signup component is similar to signin component, but we create a new user instead.
  */
@@ -104,13 +112,14 @@ class Signup extends React.Component {
                   type="password"
                   onChange={this.handleChange}
                 />
-                <Form.Input
+                <Form.Select
                   label="Security Question 1"
                   id="signup-form-question1"
                   icon="question circle"
                   iconPosition="left"
                   name="question1"
-                  placeholder="Security Question 1"
+                  options={securityQuestionsList.map((question, index) => ({ key: index, text: question, value: question }))}
+                  placeholder="Select Security Question 1"
                   onChange={this.handleChange}
                 />
                 <Form.Input
@@ -122,13 +131,14 @@ class Signup extends React.Component {
                   placeholder="Answer 1"
                   onChange={this.handleChange}
                 />
-                <Form.Input
+                <Form.Select
                   label="Security Question 2"
                   id="signup-form-question2"
                   icon="question circle"
                   iconPosition="left"
                   name="question2"
-                  placeholder="Security Question 2"
+                  options={securityQuestionsList.map((question, index) => ({ key: index, text: question, value: question }))}
+                  placeholder="Select Security Question 2"
                   onChange={this.handleChange}
                 />
                 <Form.Input
