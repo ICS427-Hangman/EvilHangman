@@ -10,9 +10,6 @@ export default function PlayTheHangmanGame() {
   const [gameOver, setGameOver] = useState(false);
   const [guessedChars, setGuessedChars] = useState(new Set());
   const [displayedWord, setDisplayedWord] = useState('');
-  const hangmanImages = ['()'];
-  const hangmanImages2 = ['/|]'];
-  const hangmanImages3 = ['[]'];
   const handleNumCharsChange = (event) => {
     setNumChars(event.target.value);
   };
