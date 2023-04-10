@@ -1,14 +1,56 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    {
+      "email": "admin@foo.com",
+      "password": "changeme",
+      "role": "admin",
+      "securityQuestions": [
+        {
+          "question": "What is your mother's maiden name?",
+          "answer": "Smith"
+        },
+        {
+          "question": "What was the name of your first pet?",
+          "answer": "Fluffy"
+        }
+      ]
+    },
+    {
+      "email": "john@foo.com",
+      "password": "changeme",
+      "securityQuestions": [
+        {
+          "question": "What is your favorite color?",
+          "answer": "Blue"
+        }
+      ]
+    }
   ],
-
   "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+    {
+      "name": "Basket",
+      "quantity": 3,
+      "owner": "john@foo.com",
+      "condition": "excellent"
+    },
+    {
+      "name": "Bicycle",
+      "quantity": 2,
+      "owner": "john@foo.com",
+      "condition": "poor"
+    },
+    {
+      "name": "Banana",
+      "quantity": 2,
+      "owner": "admin@foo.com",
+      "condition": "good"
+    },
+    {
+      "name": "Boogie Board",
+      "quantity": 2,
+      "owner": "admin@foo.com",
+      "condition": "excellent"
+    }
   ],
   "defaultQuestions": [
     {
@@ -16,11 +58,11 @@
       "name": "john",
       "question1": "What city were you born in?",
       "answer1": "enter your answer",
-      "question2":"What is your oldest sibling’s middle name?",
+      "question2": "What is your oldest sibling’s middle name?",
       "answer2": "enter your answer",
-      "question3":"What college were you attended?",
+      "question3": "What college were you attended?",
       "answer3": "enter your answer",
-      "question4":"In what city or town did your parents meet?",
+      "question4": "In what city or town did your parents meet?",
       "answer4": "enter your answer"
     }
   ]
