@@ -10,7 +10,9 @@ export default function PlayTheHangmanGame() {
   const [gameOver, setGameOver] = useState(false);
   const [guessedChars, setGuessedChars] = useState(new Set());
   const [displayedWord, setDisplayedWord] = useState('');
-
+  const hangmanImages = ['()'];
+  const hangmanImages2 = ['/|]'];
+  const hangmanImages3 = ['[]'];
   const handleNumCharsChange = (event) => {
     setNumChars(event.target.value);
   };
@@ -70,6 +72,7 @@ export default function PlayTheHangmanGame() {
         <div>
           {!word ? (
             <div style={{ marginTop: '20px' }}>
+              <h1>Let Start</h1>
               <label style={{ marginTop: '20px' }}>
                 Number of characters in word:
                 <input style={{ marginTop: '20px', marginLeft: '10px' }} type="number" value={numChars} onChange={handleNumCharsChange} />
