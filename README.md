@@ -82,3 +82,49 @@ Here is an image
 
 <img src="doc/Screenshot 2023-03-25 at 6.54.55 PM.png">
 
+## README version for Assignment 4:
+
+## What was done since the last README submitted?
+<hr />
+
+## Change #1
+
+One-way hashing is finished with the security questions. 
+
+<img src="doc/oneway.png">
+
+## Change #2
+
+We modify our security questions and sign-up page. Before, the new user could answer their security questions after signup. But now the user answers the security question while signing up. 
+
+<img src="doc/ssignup.png">
+
+## Change #3
+
+We tried to hack into our applications and fix them.  For more detail, please view our report. 
+
+
+Here is the link: https://docs.google.com/document/d/17k2cdH9R3MlN6fwwbVEN1DHX6IFzniOUn0UrN3zSXGo/edit
+
+## What is pending now
+
+## Pending # 1
+
+Forgot password. Linked security questions with forget password feature. 
+
+## Pending # 2
+
+Design for sign up and sign in. 
+Design home page. 
+
+## Who did what so far and what will each person be doing next
+
+Here is our project board. It keeps track of who did what, what is finished, and who finished by who. 
+
+Here is the link to it : https://github.com/orgs/ICS427-Hangman/projects/1/views/1
+
+<img src="doc/project4.png">
+
+## Link of Reposistory:
+
+Repository: https://github.com/ICS427-Hangman/EvilHangman
