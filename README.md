@@ -84,24 +84,24 @@ Here is an image
 
 ## README version for Assignment 4:
 
-## What was done since the last README submitted?
+## What has been completed since the last README was submitted?
 <hr />
 
 ## Change #1
 
-One-way hashing is finished with the security questions. 
+One-way hashing has been implemented for the stored security questions. When a user inputs their security questions, it is hashed so that even if the database were to be hacked, the information provided would be useless to the hacker. 
 
 <img src="doc/oneway.png">
 
 ## Change #2
 
-We modify our security questions and sign-up page. Before, the new user could answer their security questions after signup. But now the user answers the security question while signing up. 
+We modified the security questions and sign-up to be on the same page. Before this, the new user would be asked to set up security questions after they signed up. We determined it would be better to have the user answer the security questions while signing up. 
 
 <img src="doc/ssignup.png">
 
 ## Change #3
 
-We tried to hack into our applications and fix them.  For more detail, please view our report. 
+We fuzz tested our application. No fuzz tests revealed any security flaws, and so no fixes were needed at this time. 
 
 
 Here is the link: https://docs.google.com/document/d/17k2cdH9R3MlN6fwwbVEN1DHX6IFzniOUn0UrN3zSXGo/edit
@@ -110,18 +110,18 @@ Here is the link: https://docs.google.com/document/d/17k2cdH9R3MlN6fwwbVEN1DHX6I
 
 ## Pending # 1
 
-Forgot password. Linked security questions with forget password feature. 
+We need to finalize the Forgot Password feature, to allow a user to reset their password if they successfully answer the security questions. 
 
 ## Pending # 2
 
-Design for sign up and sign in. 
-Design home page. 
+When the user logs in, they immediately start playing the game.
+
 
 ## Who did what so far and what will each person be doing next
 
-Here is our project board. It keeps track of who did what, what is finished, and who finished by who. 
+The GitHub project board keeps track of who was assigned which task, which tasks were finished by whom. 
 
-Here is the link to it : https://github.com/orgs/ICS427-Hangman/projects/1/views/1
+Here is the link : https://github.com/orgs/ICS427-Hangman/projects/1/views/1
 
 <img src="doc/project4.png">
 
