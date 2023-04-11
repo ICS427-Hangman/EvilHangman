@@ -86,19 +86,32 @@ Here is an image
 
 ## What was done since the last README submitted?
 <hr />
+
 ## Change #1
+
 One-way hashig is finished with the security questions. 
 
 <img src="doc/oneway.png">
 
 ## Change #2
+
 We modifiy our security questions and sign up page. Before, the new user counld answer there security questions after signup. But, now the user answer the security question while signing up. 
 
+<img src="doc/ssignup.png">
+
 ## Change #3
+
 We tried hack into our applications and find some problems and fix it. For more detail, please view our report. 
 
-
+Here is the link: https://docs.google.com/document/d/17k2cdH9R3MlN6fwwbVEN1DHX6IFzniOUn0UrN3zSXGo/edit
 
 ## What is pending now
 
+## Pending # 1
 
+Forgot password. Linked security questions with forget password feature. 
+
+## Pending # 2
+
+Design for sign up and sign in. 
+Design home page. 
