@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
+import { Meteor } from 'meteor/meteor';
 
 const securityQuestionsList = [
   'What is your mother\'s maiden name?',
@@ -54,26 +55,36 @@ class Signup extends React.Component {
       this.setState({ error: 'Please provide both security questions and answers.' });
       return;
     }
-    Accounts.createUser(
-      {
-        email,
-        username: email,
-        password,
-        profile: {
-          securityQuestions: [
-            { question: question1, answer: answer1 },
-            { question: question2, answer: answer2 },
-          ],
+    // Hash the answers before storing them
+    Meteor.call('accounts.hashAnswers', [answer1, answer2], (error, hashedAnswers) => {
+      if (error) {
+        this.setState({ error: error.message });
+        return;
+      }
+
+      const [hashedAnswer1, hashedAnswer2] = hashedAnswers;
+
+      Accounts.createUser(
+        {
+          email,
+          username: email,
+          password,
+          profile: {
+            securityQuestions: [
+              { question: question1, answer: hashedAnswer1 },
+              { question: question2, answer: hashedAnswer2 },
+            ],
+          },
         },
-      },
       (err) => {
         if (err) {
           this.setState({ error: err.reason });
         } else {
           this.setState({ error: '', redirectToReferer: true });
         }
-      },
-    );
+        },
+      );
+    });
   };
 
   /* Display the signup form. Redirect to add page after successful registration and login. */

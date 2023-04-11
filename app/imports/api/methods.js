@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { Accounts } from 'meteor/accounts-base';
 import { Random } from 'meteor/random';
+import bcrypt from 'bcryptjs';
 
 Meteor.methods({
   'users.getSecurityQuestion'(email) {
@@ -81,14 +82,14 @@ Meteor.methods({
     if (!this.userId) {
       throw new Meteor.Error('not-authorized', 'You must be logged in to delete a user account');
     }
-
-    // You may want to add additional checks here to ensure that the currently logged-in user
-    // has sufficient privileges to delete other user accounts
-
     Meteor.users.remove({ _id: userId }, (error) => {
       if (error) {
         throw new Meteor.Error('delete-user-failed', error.message);
       }
     });
+  },
+  'accounts.hashAnswers'(answers) {
+    check(answers, [String]);
+      return answers.map((answer) => bcrypt.hashSync(answer, 10));
   },
 });
