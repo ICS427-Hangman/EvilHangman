@@ -82,3 +82,11 @@ Here is an image
 
 <img src="doc/Screenshot 2023-03-25 at 6.54.55 PM.png">
 
+## README version for Assignment 3:
+
+## What was done since the last README submitted?
+One-way hashig is finished with the security questions. 
+
+## What is pending now
+
+
