@@ -89,6 +89,8 @@ Here is an image
 ## Change #1
 One-way hashig is finished with the security questions. 
 
+<img src="doc/oneway.png">
+
 ## Change #2
 We modifiy our security questions and sign up page. Before, the new user counld answer there security questions after signup. But, now the user answer the security question while signing up. 
 
