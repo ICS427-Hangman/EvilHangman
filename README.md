@@ -82,10 +82,20 @@ Here is an image
 
 <img src="doc/Screenshot 2023-03-25 at 6.54.55 PM.png">
 
-## README version for Assignment 3:
+## README version for Assignment 4:
 
 ## What was done since the last README submitted?
+<hr />
+## Change #1
 One-way hashig is finished with the security questions. 
+
+## Change #2
+We modifiy our security questions and sign up page. Before, the new user counld answer there security questions after signup. But, now the user answer the security question while signing up. 
+
+## Change #3
+We tried hack into our applications and find some problems and fix it. For more detail, please view our report. 
+
+
 
 ## What is pending now
 
