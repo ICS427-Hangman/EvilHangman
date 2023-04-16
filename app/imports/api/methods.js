@@ -63,12 +63,6 @@ Meteor.methods({
         'services.password.reset.tokenExpires': tokenExpires,
       },
     });
-
-    // Remove this line to prevent sending emails
-    // this.unblock();
-    // Email.sendResetPasswordLink(user, token);
-
-    // Return the token after creating it
     return token;
   },
 
