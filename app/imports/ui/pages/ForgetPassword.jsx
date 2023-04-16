@@ -6,42 +6,23 @@ import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-rea
 export default class ForgotPassword extends React.Component {
   state = {
     email: '',
-    securityQuestion: '',
     securityAnswer: '',
     error: '',
-    message: '',
     randomSecurityQuestion: null,
-  }
+  };
 
   handleChange = (e, { name, value }) => {
     this.setState({ [name]: value });
     if (name === 'email') {
       Meteor.call('users.hasSecurityQuestions', value, (err, res) => {
         if (err) {
-          console.error(err);
-          if (err.error === 'invalid-email') {
-            this.setState({ error: '', randomSecurityQuestion: null });
-          } else {
-            this.setState({ error: err.reason, randomSecurityQuestion: null });
-          }
+          this.setState({ error: err.reason, randomSecurityQuestion: null });
         } else {
-          console.log('Response from server:', res);
           this.setState({ error: '', randomSecurityQuestion: res });
         }
       });
     }
-  }
-
-  handleBlur = () => {
-    const { email } = this.state;
-    Meteor.call('users.hasSecurityQuestions', email, (err, res) => {
-      if (err) {
-        this.setState({ error: err.reason, hasSecurityQuestions: false });
-      } else {
-        this.setState({ error: '', hasSecurityQuestions: res });
-      }
-    });
-  }
+  };
 
   handleSubmit = () => {
     const { email, securityAnswer, randomSecurityQuestion } = this.state;
@@ -54,12 +35,12 @@ export default class ForgotPassword extends React.Component {
         }
       });
     }
-  }
+  };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
     this.handleSubmit();
-  }
+  };
 
   render() {
     const { randomSecurityQuestion } = this.state;
@@ -83,7 +64,6 @@ export default class ForgotPassword extends React.Component {
                   type="email"
                   placeholder="E-mail address"
                   onChange={this.handleChange}
-                  onBlur={this.handleBlur}
                 />
                 {hasSecurityQuestion && (
                   <>
@@ -113,15 +93,6 @@ export default class ForgotPassword extends React.Component {
                 error
                 header="Failed to reset password"
                 content={this.state.error}
-              />
-            )}
-            {this.state.message === '' ? (
-              ''
-            ) : (
-              <Message
-                success
-                header="Password reset email sent"
-                content={this.state.message}
               />
             )}
           </Grid.Column>
