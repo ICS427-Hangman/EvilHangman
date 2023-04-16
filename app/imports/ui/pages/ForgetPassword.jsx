@@ -6,61 +6,46 @@ import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-rea
 export default class ForgotPassword extends React.Component {
   state = {
     email: '',
-    securityQuestion: '',
     securityAnswer: '',
     error: '',
-    message: '',
-    hasSecurityQuestions: false,
-  }
+    randomSecurityQuestion: null,
+  };
 
   handleChange = (e, { name, value }) => {
     this.setState({ [name]: value });
     if (name === 'email') {
       Meteor.call('users.hasSecurityQuestions', value, (err, res) => {
         if (err) {
-          console.error(err);
-          if (err.error === 'invalid-email') {
-            this.setState({ error: '', hasSecurityQuestions: false });
-          } else {
-            this.setState({ error: err.reason, hasSecurityQuestions: false });
-          }
+          this.setState({ error: err.reason, randomSecurityQuestion: null });
         } else {
-          console.log('Response from server:', res); // Add this line
-          this.setState({ error: '', hasSecurityQuestions: res });
+          this.setState({ error: '', randomSecurityQuestion: res });
         }
       });
     }
-  }
-
-  handleBlur = () => {
-    const { email } = this.state;
-    Meteor.call('users.hasSecurityQuestions', email, (err, res) => {
-      if (err) {
-        this.setState({ error: err.reason, hasSecurityQuestions: false });
-      } else {
-        this.setState({ error: '', hasSecurityQuestions: res });
-      }
-    });
-  }
+  };
 
   handleSubmit = () => {
-    const { email, securityQuestion, securityAnswer } = this.state;
-    Meteor.call('users.createResetTokenWithSecurityQuestion', email, securityQuestion, securityAnswer, (err) => {
-      if (err) {
-        this.setState({ error: err.reason });
-      } else {
-        this.setState({ error: '', message: 'A password reset email has been sent to your email address.' });
-      }
-    });
-  }
+    const { email, securityAnswer, randomSecurityQuestion } = this.state;
+    if (randomSecurityQuestion) {
+      Meteor.call('users.createResetTokenWithSecurityQuestion', email, randomSecurityQuestion.question, securityAnswer, (err, token) => {
+        if (err) {
+          this.setState({ error: err.reason });
+        } else {
+          this.props.history.push(`/reset-password/${token}`);
+        }
+      });
+    }
+  };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
     this.handleSubmit();
-  }
+  };
 
   render() {
-    const { hasSecurityQuestions } = this.state;
+    const { randomSecurityQuestion } = this.state;
+    const hasSecurityQuestion = randomSecurityQuestion !== null;
+
     return (
       <Container id="forgot-password-page">
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
@@ -79,27 +64,26 @@ export default class ForgotPassword extends React.Component {
                   type="email"
                   placeholder="E-mail address"
                   onChange={this.handleChange}
-                  onBlur={this.handleBlur}
                 />
-                {hasSecurityQuestions && (
+                {hasSecurityQuestion && (
                   <>
                     <Form.Input
                       label="Security Question"
                       id="forgot-password-form-security-question"
                       name="securityQuestion"
-                      placeholder="What is your favorite color?"
-                      onChange={this.handleChange}
+                      value={randomSecurityQuestion.question}
+                      readOnly
                     />
                     <Form.Input
                       label="Security Answer"
                       id="forgot-password-form-security-answer"
                       name="securityAnswer"
-                      placeholder="Blue"
+                      placeholder="Your answer"
                       onChange={this.handleChange}
                     />
                   </>
                 )}
-                <Form.Button content="Reset password" disabled={!this.state.email || !hasSecurityQuestions}/>
+                <Form.Button content="Reset password" disabled={!this.state.email || !hasSecurityQuestion}/>
               </Segment>
             </Form>
             {this.state.error === '' ? (
@@ -109,15 +93,6 @@ export default class ForgotPassword extends React.Component {
                 error
                 header="Failed to reset password"
                 content={this.state.error}
-              />
-            )}
-            {this.state.message === '' ? (
-              ''
-            ) : (
-              <Message
-                success
-                header="Password reset email sent"
-                content={this.state.message}
               />
             )}
           </Grid.Column>

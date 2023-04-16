@@ -5,79 +5,92 @@ import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-rea
 
 export default class ResetPassword extends React.Component {
   state = {
+    token: this.props.match.params.token, // Fetch the reset token from the URL parameter
     newPassword: '',
     confirmPassword: '',
     error: '',
-    message: '',
-  }
+    success: false,
+  };
 
   handleChange = (e, { name, value }) => {
     this.setState({ [name]: value });
-  }
+  };
 
-  submitNewPassword = () => {
-    const { newPassword, confirmPassword } = this.state;
-    if (newPassword === confirmPassword) {
-      Meteor.call('users.setNewPasswordWithResetToken', this.props.match.params.token, newPassword, (err) => {
-        if (err) {
-          this.setState({ error: err.reason });
-        } else {
-          this.setState({ error: '', message: 'Your password has been successfully reset.' });
-        }
-      });
-    } else {
+  handleSubmit = () => {
+    const { token, newPassword, confirmPassword } = this.state;
+
+    if (newPassword !== confirmPassword) {
       this.setState({ error: 'Passwords do not match' });
+      return;
     }
-  }
+
+    Meteor.call('users.setNewPasswordWithResetToken', token, newPassword, (err) => {
+      if (err) {
+        this.setState({ error: err.reason });
+      } else {
+        this.setState({ error: '', success: true });
+        setTimeout(() => {
+          this.props.history.push('/signin');
+        }, 3000);
+      }
+    });
+  };
+
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    this.handleSubmit();
+  };
 
   render() {
-    const { message } = this.state;
     return (
       <Container id="reset-password-page">
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
             <Header as="h2" textAlign="center">
-              Reset Your Password
+              Set Your New Password
             </Header>
-            {message === '' ? (
-              <Form onSubmit={this.submitNewPassword}>
-                <Segment stacked>
-                  <Form.Input
-                    label="New Password"
-                    id="reset-password-form-new-password"
-                    icon="lock"
-                    iconPosition="left"
-                    name="newPassword"
-                    type="password"
-                    placeholder="New password"
-                    onChange={this.handleChange}
-                  />
-                  <Form.Input
-                    label="Confirm Password"
-                    id="reset-password-form-confirm-password"
-                    icon="lock"
-                    iconPosition="left"
-                    name="confirmPassword"
-                    type="password"
-                    placeholder="Confirm password"
-                    onChange={this.handleChange}
-                  />
-                  <Form.Button content="Submit"/>
-                </Segment>
-              </Form>
-            ) : (
-              <Header as="h3" textAlign="center">
-                {message}
-              </Header>
-            )}
+            <Form onSubmit={this.handleFormSubmit}>
+              <Segment stacked>
+                <Form.Input
+                  label="New Password"
+                  id="reset-password-form-new-password"
+                  icon="lock"
+                  iconPosition="left"
+                  name="newPassword"
+                  type="password"
+                  placeholder="New password"
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  label="Confirm Password"
+                  id="reset-password-form-confirm-password"
+                  icon="lock"
+                  iconPosition="left"
+                  name="confirmPassword"
+                  type="password"
+                  placeholder="Confirm new password"
+                  onChange={this.handleChange}
+                />
+                <Form.Button content="Set new password" disabled={!this.state.token || !this.state.newPassword || !this.state.confirmPassword}/>
+              </Segment>
+            </Form>
             {this.state.error === '' ? (
               ''
             ) : (
               <Message
                 error
-                header="Error"
+                header="Failed to set new password"
                 content={this.state.error}
               />
+            )}
+            {this.state.success ? (
+              <Message
+                success
+                header="New password set"
+                content="Your new password has been set successfully."
+              />
+            ) : (
+              ''
             )}
           </Grid.Column>
         </Grid>
@@ -87,5 +100,6 @@ export default class ResetPassword extends React.Component {
 }
 
 ResetPassword.propTypes = {
-  match: PropTypes.object.isRequired,
+  history: PropTypes.object,
+  match: PropTypes.object,
 };
