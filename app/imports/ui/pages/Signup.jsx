@@ -76,12 +76,12 @@ class Signup extends React.Component {
             ],
           },
         },
-      (err) => {
-        if (err) {
-          this.setState({ error: err.reason });
-        } else {
-          this.setState({ error: '', redirectToReferer: true });
-        }
+        (err) => {
+          if (err) {
+            this.setState({ error: err.reason });
+          } else {
+            this.setState({ error: '', redirectToReferer: true });
+          }
         },
       );
     });

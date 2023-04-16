@@ -96,6 +96,6 @@ Meteor.methods({
   },
   'accounts.hashAnswers'(answers) {
     check(answers, [String]);
-      return answers.map((answer) => bcrypt.hashSync(answer, 10));
+    return answers.map((answer) => bcrypt.hashSync(answer, 10));
   },
 });
