@@ -19,17 +19,17 @@ Meteor.methods({
 
   'users.hasSecurityQuestions'(email) {
     check(email, String);
-    const user = Meteor.users.findOne({ emails: { $elemMatch: { address: email } } });
-    console.log('User found:', user); // Add this line
+
+    const user = Meteor.users.findOne({ 'emails.address': email });
+
     if (!user) {
-      throw new Meteor.Error('invalid-email', 'Invalid email address');
+      throw new Meteor.Error('invalid-email', 'The provided email address does not exist.');
     }
 
-    if (user.securityQuestions && user.securityQuestions.length > 0) {
-      return true;
-    }
+    // Check if the user has security questions in their profile
+    const hasSecurityQuestions = user.profile && user.profile.securityQuestions && user.profile.securityQuestions.length > 0;
 
-    return false;
+    return hasSecurityQuestions;
   },
   'users.createResetTokenWithSecurityQuestion'(email, securityQuestion, securityAnswer) {
     check(email, String);
