@@ -35,10 +35,10 @@ Meteor.methods({
 
     return null;
   },
-  'users.createResetTokenWithSecurityQuestion'(email, securityQuestion, securityAnswer) {
+  'users.createResetTokenWithSecurityQuestion'(email, securityQuestion, hashedSecurityAnswer) {
     check(email, String);
     check(securityQuestion, String);
-    check(securityAnswer, String);
+    check(hashedSecurityAnswer, String);
 
     const user = Meteor.users.findOne({ 'emails.address': email });
 
@@ -47,10 +47,15 @@ Meteor.methods({
     }
 
     const correctSecurityQuestion = user.profile.securityQuestions.find(
-      (sq) => sq.question === securityQuestion && sq.answer === securityAnswer,
+      (sq) => sq.question === securityQuestion,
     );
 
     if (!correctSecurityQuestion) {
+      throw new Meteor.Error('invalid-question', 'The security question is incorrect');
+    }
+
+    // Compare the hashed answers
+    if (!bcrypt.compareSync(hashedSecurityAnswer, correctSecurityQuestion.answer)) {
       throw new Meteor.Error('invalid-answer', 'The security question answer is incorrect');
     }
 
