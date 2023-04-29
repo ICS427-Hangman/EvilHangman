@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Image } from 'semantic-ui-react';
+import { Grid, Image, Label } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
@@ -28,10 +28,11 @@ class Landing extends React.Component {
         </Grid>
         <Grid style={{ marginTop: '40px' }} id='landing-page' verticalAlign='middle' container>
           <Grid.Column>
-            <h1>Welcome to Hangman</h1>
+            <h1>Instruction: </h1>
             <p style={ { fontSize: '30px' } } >
-              1. <br/>
-              2. <br/>
+              1. Enter the number of characters in word<br/>
+              2. Enter the number of guesses allowed<br/>
+              3. Press <Label>Start Game</Label> to play <br/>
             </p>
           </Grid.Column>
 
