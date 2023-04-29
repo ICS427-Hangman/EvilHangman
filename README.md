@@ -1,130 +1,40 @@
-## What is complete so far, as of Feb 13, 2023:
+## Updated Readme for the Release, 4/28/23 
 
-We have a working application, but not a web application. The game is playable in CLI. 
+1. Who is handling what in this last part of the project: 
+   1. Zhixin Li is handling the final release on GitHub.
+   2. Kai He is creating the Wiki
+   3. Malia is performing the final dynamic testing and other testing.
+   4. Greg is updating the Readme
 
-## What is pending:
- 1. Need to make the application into a web application using meteor react.
- 2. Need to create a Mongo database.
- 3. Link database by using meteor react
- 4. Need to write code to make it secure. 
- 5. Need to write code to create accounts, including a username, a password, and two security questions to reset the password.
- 6. Need to ask users the number of guesses and size of the word.
- 7. Need to write code to encrypt the passwords and security questions.7
- 8. Need to prevent Mongodb Injection.
+2. Technical notes on the program e.g. specifications for use, how to install it.
+   1. To install the program, download the source code and install all requirements. 
+   2. In the Terminal, move to the directory inside the app folder.
+   3. Enter the command "meteor npm run start"
+   4. After the program loads, it will be running on http://localhost:3000/
+   5. Open a browser to http://localhost:3000/
+   6. Register a user and begin playing!
+   
+3. Brief closing thoughts on the outcome of your program including: Developer notes looking back at all your work
+   1. The challenges: developing securely takes planning, especially when the app is a web app. Developing web applications
+is more complicated than initially thought. Making sure the database was only storing encrypted data was challenging.
+   2. Surprises: The amount of work to get the security features working was more than we expected. 
+   3. Important achievements you are proud of (if there are any you want to highlight): We are proud of the final project.
+In the end, although personally identifiable information is collected, none is stored unless it is first one-way hashed.
+Thus, even if a hacker were to breach the security, no usable information could be obtained. 
+   4. Disappointments (if any):we were disappointed in how difficult it was to find a free system that could perform dynamic analysis.
+      Additional free tools should be developed under GNU for those working on open source projects. 
+   5. Disclaimers/caveats etc: Because we relied heavily on Meteor, if there are inherent flaws in Meteor's implementation,
+the same flaws will affect this program.
 
-## What each team member has contributed and will be working on:
-1. Zhixin Li
- a. Contribute to assignment 1, parts A, and part of part B.
- b. Assignments:
-  i. Help to make the application into a web application. 
-  ii. Creating meteor template importing to GitHub. 
-2. Kai He
- a. Contribute to assignment 1, parts A, and part of part B. Fixing it to complete sentence. 
- b. Assignments:
-  i. Updating the README file in GitHub. 
-  ii. Help to make the application into a web application. 
-  iii. I will create the code to ask for two security questions and passwords. 
-3. Gregory Wilder
- a. Done so far: Creation of the source code of the game. Contributed to assignment 1, including edits. 
- b. Assignments: 
-  i. Uploading the game source code to GitHub. 
-  ii. Help to make the application into a web application. 
-  iii. Create an Mongo database and provide credentials to the team.
-  iiii. Need to prevent Mongodb Injection.
-4. Malia Liu
- a. Contribute to assignment 1, part A, and part of part B. Fixing and providing a diagram. 
- b. Assignments: 
-  i. Help to make the application into a web application.
+4. link to your online repository.
+   1. Repository: https://github.com/ICS427-Hangman/EvilHangman
 
-< hr />
-## README version for Assignment 3:
-<hr />
+5. link to the final project documentation file within the repository
+   1. https://github.com/ICS427-Hangman/EvilHangman/blob/master/README.md
 
-## Progress:
+6. link to the release version of your program
+   1. 
 
-1. A working website with a simple design for the web application. 
+7. link to your wiki page
+   1. https://github.com/ICS427-Hangman/EvilHangman/wiki#home
 
-<img src="doc/home.png">
-
-2. Working security questions. They are created after the user signs up their account. Right now, the admin is the only person who can see those answers.
-
-<img src="doc/sp.png">
-<img src="doc/sq.png">
-<img src="doc/lsq.png">
-
-3. Working game function. 
-
-<img src="doc/game.png">
-<img src="doc/play.png">
-<img src="doc/lose.png">
-<img src="doc/win.png">
-
-4. Are to delete the account. It is available at the top left under the email tag. 
-
-<img src="doc/dc.png">
-
-## Link:
-
-Repository: https://github.com/ICS427-Hangman/EvilHangman
-
-## Pending
-
-What we left to do is make it more secure, and complete the other additional features.
-Since we are currently saving security questions in the database in plain text, and an admin user has access to it, there is currently risk of leaking PII in a successful attack.
-In a future version, the answers will be stored in a hashed format, so even if an attacker gets access to the database, the information will be useless to the attacker.
-
-## Current & Upcoming Versions
-For the Current and Upcoming versions, we have created a project board at Github. It shows the issues we are working on, as well as the completed issues.
-
-Here is the link to it: https://github.com/orgs/ICS427-Hangman/projects/1
-
-Here is an image
-
-<img src="doc/Screenshot 2023-03-25 at 6.54.55 PM.png">
-
-## README version for Assignment 4:
-
-## What has been completed since the last README was submitted?
-<hr />
-
-## Change #1
-
-One-way hashing has been implemented for the stored security questions. When a user inputs their security questions, it is hashed so that even if the database were to be hacked, the information provided would be useless to the hacker. 
-
-<img src="doc/oneway.png">
-
-## Change #2
-
-We modified the security questions and sign-up to be on the same page. Before this, the new user would be asked to set up security questions after they signed up. We determined it would be better to have the user answer the security questions while signing up. 
-
-<img src="doc/ssignup.png">
-
-## Change #3
-
-We fuzz tested our application. No fuzz tests revealed any security flaws, and so no fixes were needed at this time. 
-
-
-Here is the link: https://docs.google.com/document/d/17k2cdH9R3MlN6fwwbVEN1DHX6IFzniOUn0UrN3zSXGo/edit
-
-## What is pending now
-
-## Pending # 1
-
-We need to finalize the Forgot Password feature, to allow a user to reset their password if they successfully answer the security questions. 
-
-## Pending # 2
-
-When the user logs in, they immediately start playing the game.
-
-
-## Who did what so far and what will each person be doing next
-
-The GitHub project board keeps track of who was assigned which task, which tasks were finished by whom. 
-
-Here is the link : https://github.com/orgs/ICS427-Hangman/projects/1/views/1
-
-<img src="doc/project4.png">
-
-## Link of Reposistory:
-
-Repository: https://github.com/ICS427-Hangman/EvilHangman
