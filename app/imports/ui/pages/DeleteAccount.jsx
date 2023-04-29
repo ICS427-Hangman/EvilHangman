@@ -9,9 +9,9 @@ class DeleteAccount extends React.Component {
   submit = () => {
     Meteor.call('accounts.deleteUser', Meteor.userId(), (error) => {
       if (error) {
-        alert(`Error: ${error.message}`);
+        console.error('Error:', error.message);
       } else {
-        alert('User account deleted successfully');
+        console.log('User account deleted successfully');
         this.props.history.push('/');
       }
     });

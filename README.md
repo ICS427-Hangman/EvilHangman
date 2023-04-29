@@ -26,15 +26,15 @@ Thus, even if a hacker were to breach the security, no usable information could 
    5. Disclaimers/caveats etc: Because we relied heavily on Meteor, if there are inherent flaws in Meteor's implementation,
 the same flaws will affect this program.
 
-4. link to your online repository.
+4. Link to your online repository.
    1. Repository: https://github.com/ICS427-Hangman/EvilHangman
 
-5. link to the final project documentation file within the repository
+5. Link to the final project documentation file within the repository
    1. https://github.com/ICS427-Hangman/EvilHangman/blob/master/README.md
 
-6. link to the release version of your program
+6. Link to the release version of your program
    1. 
 
-7. link to your wiki page
+7. Link to your wiki page
    1. https://github.com/ICS427-Hangman/EvilHangman/wiki#home
 
