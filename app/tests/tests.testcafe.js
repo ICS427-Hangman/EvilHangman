@@ -8,7 +8,7 @@ import { signupPage } from './signup.page';
 
 /** Credentials for one of the sample users defined in settings.development.json. */
 const credentials = { username: 'john@foo.com', password: 'changeme' };
-const userInfo = { username: 'test@foo.com', password: 'changeme', q1: 'idk', q2: 'idk' };
+const userInfo = { username: 'test-user@foo.com', password: 'changeme', q1: 'idk', q2: 'idk' };
 
 fixture('evil-hangman localhost test with default db')
   .page('http://localhost:3000');
