@@ -13,9 +13,9 @@ const userInfo = { username: 'test-user@foo.com', password: 'changeme', q1: 'idk
 fixture('evil-hangman localhost test with default db')
   .page('http://localhost:3000');
 
-/* test('Test that landing page shows up', async (testController) => {
+test('Test that landing page shows up', async (testController) => {
   await landingPage.isDisplayed(testController);
-}); */
+});
 test('Test that signin and signout work', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
