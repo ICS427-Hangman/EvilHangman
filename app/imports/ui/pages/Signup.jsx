@@ -92,7 +92,7 @@ class Signup extends React.Component {
     const { home } = this.props.location.state || { from: { pathname: '/hangman' } };
     // if correct authentication, redirect to from: page instead of signup screen
     if (this.state.redirectToReferer) {
-      return <Redirect to={home}/>;
+      return <Redirect to={'/hangman'}/>;
     }
     return (
       <Container id="signup-page">
