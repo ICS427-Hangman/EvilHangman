@@ -34,6 +34,7 @@ class NavBar {
     await testController.expect(Selector('#navbar-current-user').exists).ok();
     await testController.click('#navbar-current-user');
     await testController.click('#navbar-delete-account');
+    await testController.click('#delete-form-submit');
   }
 
   /** Pull down login menu, go to sign up page. */
