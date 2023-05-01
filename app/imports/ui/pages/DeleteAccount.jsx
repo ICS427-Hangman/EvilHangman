@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
-import { withRouter, alert } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Container, Form, Grid, Header } from 'semantic-ui-react';
 
 class DeleteAccount extends React.Component {
