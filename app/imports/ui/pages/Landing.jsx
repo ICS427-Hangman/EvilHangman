@@ -7,8 +7,8 @@ class Landing extends React.Component {
   render() {
     const linkStyle = { color: 'black', textDecoration: 'none' };
     return (
-      <Grid>
-        <Grid style={{ marginTop: '30px', marginBottom: '30px' }} id='landing-page' verticalAlign='middle' textAlign='center' container>
+      <Grid id='landing-page'>
+        <Grid style={{ marginTop: '30px', marginBottom: '30px' }} verticalAlign='middle' textAlign='center' container>
 
           <Grid.Row style={{ marginTop: '30px' }}>
             <Grid.Column width={4}>
