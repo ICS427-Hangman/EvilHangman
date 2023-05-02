@@ -32,7 +32,7 @@ test('Test that signup work', async (testController) => {
   await navBar.logout(testController);
 });
 
-test('Test that foget password work', async (testController) => {
+test('Test that forget password work', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await testController.click('#forget-password');
   await forgetpasswordPage.forgetPassword(testController, userInfo);
