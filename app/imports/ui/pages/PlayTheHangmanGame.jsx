@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Grid } from 'semantic-ui-react';
+import swal from 'sweetalert';
 import dictionaryWords from './dictionary';
 
 export default function PlayTheHangmanGame() {
@@ -20,14 +21,18 @@ export default function PlayTheHangmanGame() {
   };
 
   const handleStartGame = () => {
-    const words = dictionaryWords.split('\n');
-    // eslint-disable-next-line no-shadow
-    const filteredWords = words.filter((word) => word.length === Number(numChars));
-    const randomIndex = Math.floor(Math.random() * filteredWords.length);
-    const randomWord = filteredWords.length > 0 ? filteredWords[randomIndex] : '';
-    setWord(randomWord);
-    setGuessesLeft(numGuesses);
-    setGameOver(false);
+    if (numChars > 0 && numGuesses > 0) {
+      const words = dictionaryWords.split('\n');
+      // eslint-disable-next-line no-shadow
+      const filteredWords = words.filter((word) => word.length === Number(numChars));
+      const randomIndex = Math.floor(Math.random() * filteredWords.length);
+      const randomWord = filteredWords.length > 0 ? filteredWords[randomIndex] : '';
+      setWord(randomWord);
+      setGuessesLeft(numGuesses);
+      setGameOver(false);
+    } else {
+      swal('Warning', 'Number of characters and number of guesses must greater than zero');
+    }
   };
 
   const handleGuess = (event) => {
@@ -51,13 +56,11 @@ export default function PlayTheHangmanGame() {
     }
   };
   useEffect(() => {
-    if (numChars && numGuesses) {
-      setWord('');
-      setDisplayedWord('');
-      setGuessesLeft('');
-      setGuessedChars(new Set());
-      setGameOver(false);
-    }
+    setWord('');
+    setDisplayedWord('');
+    setGuessesLeft('');
+    setGuessedChars(new Set());
+    setGameOver(false);
   }, [numChars, numGuesses]);
 
   useEffect(() => {
