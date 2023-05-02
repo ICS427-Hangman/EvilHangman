@@ -1,8 +1,10 @@
+import { Selector } from 'testcafe';
 import { landingPage } from './landing.page';
 import { signinPage } from './signin.page';
 import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
 import { signupPage } from './signup.page';
+import { forgetpasswordPage } from './forgetpassword.page';
 
 /* global fixture:false, test:false */
 
@@ -30,9 +32,17 @@ test('Test that signup work', async (testController) => {
   await navBar.logout(testController);
 });
 
+test('Test that foget password work', async (testController) => {
+  await navBar.gotoSigninPage(testController);
+  await testController.click('#forget-password');
+  await forgetpasswordPage.forgetPassword(testController, userInfo);
+  await testController.wait(1000).expect(Selector('#signin-page').exists).ok();
+  await signinPage.signin(testController, userInfo.username, 'changeme123');
+});
+
 test('Test that delete account work', async (testController) => {
   await navBar.gotoSigninPage(testController);
-  await signinPage.signin(testController, userInfo.username, userInfo.password);
+  await signinPage.signin(testController, userInfo.username, 'changeme123');
   await navBar.isLoggedIn(testController, userInfo.username);
   await navBar.deleteAccount(testController);
 });

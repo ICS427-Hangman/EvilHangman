@@ -83,7 +83,7 @@ export default class ForgotPassword extends React.Component {
                     />
                   </>
                 )}
-                <Form.Button content="Reset password" disabled={!this.state.email || !hasSecurityQuestion}/>
+                <Form.Button id='reset-password' content="Reset password" disabled={!this.state.email || !hasSecurityQuestion}/>
               </Segment>
             </Form>
             {this.state.error === '' ? (

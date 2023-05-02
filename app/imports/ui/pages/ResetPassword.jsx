@@ -71,7 +71,7 @@ export default class ResetPassword extends React.Component {
                   placeholder="Confirm new password"
                   onChange={this.handleChange}
                 />
-                <Form.Button content="Set new password" disabled={!this.state.token || !this.state.newPassword || !this.state.confirmPassword}/>
+                <Form.Button id='set-new-password' content="Set new password" disabled={!this.state.token || !this.state.newPassword || !this.state.confirmPassword}/>
               </Segment>
             </Form>
             {this.state.error === '' ? (
