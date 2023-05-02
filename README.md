@@ -33,7 +33,7 @@ the same flaws will affect this program.
    1. https://github.com/ICS427-Hangman/EvilHangman/blob/master/README.md
 
 6. Link to the release version of your program
-   1. 
+   1. https://github.com/ICS427-Hangman/EvilHangman/releases/tag/v1.1.1
 
 7. Link to your wiki page
    1. https://github.com/ICS427-Hangman/EvilHangman/wiki#home
